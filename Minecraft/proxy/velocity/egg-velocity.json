@@ -15,10 +15,10 @@
     ],
     "docker_images": {
         "자바 21": "ghcr.io\/pterodactyl\/yolks:java_21",
-        "자바 17": "ghcr.io\/pterodactyl\/yolks:java_17",
+        "자바 17": "ghcr.io\/pterodactyl\/yolks:java_17"
     },
     "file_denylist": [],
-    "startup": "java -Xms128M -Xmx$(({{SERVER_MEMORY}}-{{SERVER_MEMORY}}/10))M -Dfile.encoding=UTF-8 -XX:+UseG1GC -XX:G1HeapRegionSize=4M -XX:+UnlockExperimentalVMOptions -XX:+ParallelRefProcEnabled -XX:+AlwaysPreTouch -jar {{SERVER_JARFILE}}",
+    "startup": "java -Xms128M -Xmx$(({{SERVER_MEMORY}}-{{SERVER_MEMORY}}\/10))M -Dfile.encoding=UTF-8 -XX:+UseG1GC -XX:G1HeapRegionSize=4M -XX:+UnlockExperimentalVMOptions -XX:+ParallelRefProcEnabled -XX:+AlwaysPreTouch -jar {{SERVER_JARFILE}}",
     "config": {
         "files": "{\r\n    \"velocity.toml\": {\r\n        \"parser\": \"file\",\r\n        \"find\": {\r\n            \"bind = \": \"bind = \\\"0.0.0.0:{{server.build.default.port}}\\\"\"\r\n        }\r\n    }\r\n}",
         "startup": "{\r\n    \"done\": \"Done (\"\r\n}",
@@ -57,6 +57,7 @@
             "name": "다운로드 링크",
             "description": "JAR 파일을 다운로드할 링크를 설정합니다. 이 값은 유저가 볼 수 없습니다.",
             "env_variable": "DL_PATH",
+            "default_value": "",
             "user_viewable": false,
             "user_editable": false,
             "rules": "nullable|string",
