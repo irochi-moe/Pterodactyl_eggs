@@ -6,7 +6,7 @@
     },
     "exported_at": "2024-01-01T00:00:00+09:00",
     "name": "NanoLimbo",
-    "author": "help@huyu.one",
+    "author": "help@irochi.moe",
     "description": "NanoLimbo는 초경량 서버 프로그램입니다. 채팅 및 보스바를 통해 정보를 전달할 수 있으며 로비 서버에 주로 사용됩니다.",
     "features": [
         "eula",
@@ -14,7 +14,7 @@
         "pid_limit"
     ],
     "docker_images": {
-        "자바 8": "ghcr.io\/pterodactyl\/yolks:java_8"
+        "자바 8": "ghcr.io\/parkervcp\/yolks:java_8"
     },
     "file_denylist": [],
     "startup": "java -Xms128M -Xmx$(({{SERVER_MEMORY}}-{{SERVER_MEMORY}}/10))M -Dfile.encoding=UTF-8 -jar {{SERVER_JARFILE}}",

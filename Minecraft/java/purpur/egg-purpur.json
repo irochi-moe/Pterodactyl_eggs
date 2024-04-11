@@ -6,7 +6,7 @@
     },
     "exported_at": "2024-01-01T00:00:00+09:00",
     "name": "Purpur",
-    "author": "help@huyu.one",
+    "author": "help@irochi.moe",
     "description": "Purpur는 잘 알려진 서버 프로그램인 Paper를 대체해 새로운 설정과 재미있고 흥미로운 게임플레이 기능을 제공하는 포크입니다.",
     "features": [
         "eula",
@@ -30,7 +30,7 @@
     "scripts": {
         "installation": {
             "script": "#!\/bin\/ash\r\n# Purpur 설치 스크립트\r\n#\r\n# 서버 파일: \/mnt\/server\r\nPROJECT=purpur\r\n\r\napk update\r\napk add curl jq libstdc++\r\n\r\nif [ -n \"${DL_PATH}\" ]; then\r\n\techo -e \"설정된 다운로드 링크를 사용합니다: ${DL_PATH}\"\r\n\tDOWNLOAD_URL=`eval echo $(echo ${DL_PATH} | sed -e 's\/{{\/${\/g' -e 's\/}}\/}\/g')`\r\nelse\r\n\tVER_EXISTS=`curl -s https:\/\/api.purpurmc.org\/v2\/${PROJECT} | jq -r --arg VERSION $MINECRAFT_VERSION '.versions[] | contains($VERSION)' | grep true`\r\n\tLATEST_VERSION=`curl -s https:\/\/api.purpurmc.org\/v2\/${PROJECT} | jq -r '.versions' | jq -r '.[-1]'`\r\n\r\n\tif [ \"${VER_EXISTS}\" == \"true\" ]; then\r\n\t\techo -e \"설정된 마인크래프트 버전을 사용합니다: ${MINECRAFT_VERSION}\"\r\n\telse\r\n\t\techo -e \"${PROJECT}의 최신버전을 사용합니다\"\r\n\t\tMINECRAFT_VERSION=${LATEST_VERSION}\r\n\tfi\r\n\t\r\n\tBUILD_EXISTS=`curl -s https:\/\/api.purpurmc.org\/v2\/${PROJECT}\/${MINECRAFT_VERSION} | jq -r --arg BUILD ${BUILD_NUMBER} '.builds.all | tostring | contains($BUILD)' | grep true`\r\n\tLATEST_BUILD=`curl -s https:\/\/api.purpurmc.org\/v2\/${PROJECT}\/${MINECRAFT_VERSION} | jq -r '.builds.latest'`\r\n\t\r\n\tif [ \"${BUILD_EXISTS}\" == \"true\" ]; then\r\n\t\techo -e \"마인크래프트 버전 ${MINECRAFT_VERSION}의 설정된 빌드를 사용합니다: ${BUILD_NUMBER}\"\r\n\telse\r\n\t\techo -e \"마인크래프트 버전 ${MINECRAFT_VERSION}의 최신 빌드를 사용합니다\"\r\n\t\tBUILD_NUMBER=${LATEST_BUILD}\r\n\tfi\r\n\t\r\n\tJAR_NAME=${PROJECT}-${MINECRAFT_VERSION}-${BUILD_NUMBER}.jar\r\n\t\r\n\techo \"아래 버전을 다운로드합니다:\"\r\n\techo -e \"마인크래프트 버전: ${MINECRAFT_VERSION}\"\r\n\techo -e \"빌드 번호: ${BUILD_NUMBER}\"\r\n\techo -e \"JAR 파일 이름: ${JAR_NAME}\"\r\n\tDOWNLOAD_URL=https:\/\/api.purpurmc.org\/v2\/${PROJECT}\/${MINECRAFT_VERSION}\/${BUILD_NUMBER}\/download\r\nfi\r\n\r\ncd \/mnt\/server\r\n\r\necho -e \"명령어 실행중: curl -o ${SERVER_JARFILE} ${DOWNLOAD_URL}\"\r\n\r\nif [ -f ${SERVER_JARFILE} ]; then\r\n\tmv ${SERVER_JARFILE} ${SERVER_JARFILE}.old\r\nfi\r\n\r\ncurl -o ${SERVER_JARFILE} ${DOWNLOAD_URL}\r\n\r\nif [ ! -f server.properties ]; then\r\n    echo -e \"server.properties 파일을 다운로드합니다\"\r\n    curl -o server.properties https:\/\/raw.githubusercontent.com\/irochi-moe\/Pterodactyl_eggs\/master\/Minecraft\/java\/server.properties\r\nfi",
-            "container": "ghcr.io\/pterodactyl\/installers:alpine",
+            "container": "ghcr.io\/parkervcp\/installers:alpine",
             "entrypoint": "ash"
         }
     },

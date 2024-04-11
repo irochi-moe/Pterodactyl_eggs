@@ -7,5 +7,4 @@
 
 ## 프록시 - 여러 서버를 한 주소로 묶을 수 있습니다.
 
-* [Waterfall](proxy/waterfall)
 * [Velocity](proxy/velocity)
