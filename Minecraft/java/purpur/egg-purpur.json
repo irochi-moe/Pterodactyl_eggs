@@ -7,7 +7,7 @@
     "exported_at": "2024-01-01T00:00:00+09:00",
     "name": "Purpur",
     "author": "help@irochi.moe",
-    "description": "Purpur는 잘 알려진 서버 프로그램인 Paper를 대체해 새로운 설정과 재미있고 흥미로운 게임플레이 기능을 제공하는 포크입니다.",
+    "description": "Purpur는 잘 알려진 Paper를 대체하는 버킷으로, 높은 설정 가능성과 새롭고 재미있는 게임 플레이 기능을 제공합니다.",
     "features": [
         "eula",
         "java_version",

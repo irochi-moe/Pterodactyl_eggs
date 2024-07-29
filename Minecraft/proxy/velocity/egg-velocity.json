@@ -7,7 +7,7 @@
     "exported_at": "2024-01-01T00:00:00+09:00",
     "name": "Velocity",
     "author": "help@irochi.moe",
-    "description": "Velocity는 탁월한 서버 지원, 확장성, 유연성을 갖춘 Minecraft 서버 프록시입니다.",
+    "description": "Velocity는 뛰어난 서버 지원, 확장성, 유연성을 자랑하는 Minecraft 서버 프록시입니다.",
     "features": [
         "eula",
         "java_version",

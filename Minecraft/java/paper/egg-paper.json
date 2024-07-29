@@ -7,7 +7,7 @@
     "exported_at": "2024-01-01T00:00:00+09:00",
     "name": "Paper",
     "author": "help@irochi.moe",
-    "description": "Paper는 게임플레이 메커니즘을 수정하는 것을 목표로 하는 Spigot의 고성능 포크입니다.",
+    "description": "Paper는 게임 플레이와 메커니즘의 일관성을 개선하기 위해 제작된 고성능 Spigot 포크입니다.",
     "features": [
         "eula",
         "java_version",
