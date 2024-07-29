@@ -37,8 +37,8 @@
             "description": "다운로드할 NanoLimbo 버전을 설정합니다.\r\n\r\nlatest로 설정하면 최신버전을 사용합니다.",
             "env_variable": "VERSION",
             "default_value": "latest",
-            "user_viewable": true,
-            "user_editable": true,
+            "user_viewable": false,
+            "user_editable": false,
             "rules": "required|string|max:20",
             "field_type": "text"
         },
