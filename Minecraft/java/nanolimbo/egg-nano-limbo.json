@@ -14,10 +14,10 @@
         "pid_limit"
     ],
     "docker_images": {
-        "자바 8": "ghcr.io\/parkervcp\/yolks:java_8"
+        "Java 8": "ghcr.io\/irochi-moe\/pterodactyl_yolks:java_8"
     },
     "file_denylist": [],
-    "startup": "java -Xms128M -Xmx$(({{SERVER_MEMORY}}-{{SERVER_MEMORY}}/10))M -Dfile.encoding=UTF-8 -jar {{SERVER_JARFILE}}",
+    "startup": "java -Xms128M -Xmx$(({{SERVER_MEMORY}}-{{SERVER_MEMORY}}\/5))M -Dfile.encoding=UTF-8 -Dterminal.jline=false -Dterminal.ansi=true -jar {{SERVER_JARFILE}}",
     "config": {
         "files": "{\r\n    \"settings.yml\": {\r\n        \"parser\": \"yaml\",\r\n        \"find\": {\r\n            \"bind.ip\": \"0.0.0.0\",\r\n            \"bind.port\": \"{{server.build.default.port}}\"\r\n        }\r\n    }\r\n}",
         "startup": "{\r\n    \"done\": \"Server started on\"\r\n}",

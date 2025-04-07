@@ -14,11 +14,18 @@
         "pid_limit"
     ],
     "docker_images": {
-        "자바 21": "ghcr.io\/pterodactyl\/yolks:java_21",
-        "자바 17": "ghcr.io\/pterodactyl\/yolks:java_17"
+        "Java 8": "ghcr.io\/irochi-moe\/pterodactyl_yolks:java_8",
+        "Java 11": "ghcr.io\/irochi-moe\/pterodactyl_yolks:java_11",
+        "Java 16": "ghcr.io\/irochi-moe\/pterodactyl_yolks:java_16",
+        "Java 17": "ghcr.io\/irochi-moe\/pterodactyl_yolks:java_17",
+        "Java 21": "ghcr.io\/irochi-moe\/pterodactyl_yolks:java_21",
+        "Java 23": "ghcr.io\/irochi-moe\/pterodactyl_yolks:java_23",
+        "GraalVM 17": "ghcr.io\/irochi-moe\/pterodactyl_yolks:java_17graalvm",
+        "GraalVM 21": "ghcr.io\/irochi-moe\/pterodactyl_yolks:java_21graalvm",
+        "GraalVM 23": "ghcr.io\/irochi-moe\/pterodactyl_yolks:java_23graalvm"
     },
     "file_denylist": [],
-    "startup": "java -Xms128M -Xmx$(({{SERVER_MEMORY}}-{{SERVER_MEMORY}}\/10))M -Dfile.encoding=UTF-8 -XX:+UseG1GC -XX:G1HeapRegionSize=4M -XX:+UnlockExperimentalVMOptions -XX:+ParallelRefProcEnabled -XX:+AlwaysPreTouch -jar {{SERVER_JARFILE}}",
+    "startup": "java -Xms$(({{SERVER_MEMORY}}-{{SERVER_MEMORY}}/5))M -Xmx$(({{SERVER_MEMORY}}-{{SERVER_MEMORY}}/5))M -Dfile.encoding=UTF-8 -Dterminal.jline=false -Dterminal.ansi=true -XX:+UseG1GC -XX:G1HeapRegionSize=4M -XX:+UnlockExperimentalVMOptions -XX:+ParallelRefProcEnabled -XX:+AlwaysPreTouch -XX:MaxInlineLevel=15 -jar {{SERVER_JARFILE}}",
     "config": {
         "files": "{\r\n    \"velocity.toml\": {\r\n        \"parser\": \"file\",\r\n        \"find\": {\r\n            \"bind = \": \"bind = \\\"0.0.0.0:{{server.build.default.port}}\\\"\"\r\n        }\r\n    }\r\n}",
         "startup": "{\r\n    \"done\": \"Done (\"\r\n}",
