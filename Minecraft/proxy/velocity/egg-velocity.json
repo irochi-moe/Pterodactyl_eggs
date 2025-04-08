@@ -19,10 +19,10 @@
         "Java 16": "ghcr.io\/irochi-moe\/pterodactyl_yolks:java_16",
         "Java 17": "ghcr.io\/irochi-moe\/pterodactyl_yolks:java_17",
         "Java 21": "ghcr.io\/irochi-moe\/pterodactyl_yolks:java_21",
-        "Java 23": "ghcr.io\/irochi-moe\/pterodactyl_yolks:java_23",
+        "Java 24": "ghcr.io\/irochi-moe\/pterodactyl_yolks:java_24",
         "GraalVM 17": "ghcr.io\/irochi-moe\/pterodactyl_yolks:java_17graalvm",
         "GraalVM 21": "ghcr.io\/irochi-moe\/pterodactyl_yolks:java_21graalvm",
-        "GraalVM 23": "ghcr.io\/irochi-moe\/pterodactyl_yolks:java_23graalvm"
+        "GraalVM 24": "ghcr.io\/irochi-moe\/pterodactyl_yolks:java_24graalvm"
     },
     "file_denylist": [],
     "startup": "java -Xms$(({{SERVER_MEMORY}}-{{SERVER_MEMORY}}/5))M -Xmx$(({{SERVER_MEMORY}}-{{SERVER_MEMORY}}/5))M -Dfile.encoding=UTF-8 -Dterminal.jline=false -Dterminal.ansi=true -XX:+UseG1GC -XX:G1HeapRegionSize=4M -XX:+UnlockExperimentalVMOptions -XX:+ParallelRefProcEnabled -XX:+AlwaysPreTouch -XX:MaxInlineLevel=15 -jar {{SERVER_JARFILE}}",
