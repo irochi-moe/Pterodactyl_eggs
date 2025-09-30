@@ -25,7 +25,7 @@
         "GraalVM 24": "ghcr.io\/irochi-moe\/pterodactyl_yolks:java_25graalvm"
     },
     "file_denylist": [],
-    "startup": "java -Xms$(({{SERVER_MEMORY}}-{{SERVER_MEMORY}}/5))M -Xmx$(({{SERVER_MEMORY}}-{{SERVER_MEMORY}}/5))M -Dfile.encoding=UTF-8 -Dterminal.jline=false -Dterminal.ansi=true -XX:+UseG1GC -XX:G1HeapRegionSize=4M -XX:+UnlockExperimentalVMOptions -XX:+ParallelRefProcEnabled -XX:+AlwaysPreTouch -XX:MaxInlineLevel=15 -jar {{SERVER_JARFILE}}",
+    "startup": "java -Xms$(({{SERVER_MEMORY}}*70/100))M -Xmx$(({{SERVER_MEMORY}}*70/100))M -XX:+UseG1GC -XX:G1HeapRegionSize=4M -XX:+UnlockExperimentalVMOptions -XX:+ParallelRefProcEnabled -XX:+AlwaysPreTouch -XX:MaxInlineLevel=15 -Dfile.encoding=UTF-8 -Dterminal.jline=false -Dterminal.ansi=true -jar {{SERVER_JARFILE}}",
     "config": {
         "files": "{\r\n    \"velocity.toml\": {\r\n        \"parser\": \"file\",\r\n        \"find\": {\r\n            \"bind = \": \"bind = \\\"0.0.0.0:{{server.build.default.port}}\\\"\"\r\n        }\r\n    }\r\n}",
         "startup": "{\r\n    \"done\": \"Done (\"\r\n}",
