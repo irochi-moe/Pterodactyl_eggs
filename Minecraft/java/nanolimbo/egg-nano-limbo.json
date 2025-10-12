@@ -27,7 +27,7 @@
     "scripts": {
         "installation": {
             "script": "#!\/bin\/bash\r\n# NanoLimbo 설치 스크립트\r\n#\r\n# 서버 파일: \/mnt\/server\r\n\r\napt update\r\napt install -y curl jq git openssl bash bc apt-transport-https gnupg software-properties-common libstdc++6\r\n\r\nif [ -z \"${DOWNLOAD_URL}\" ]; then\r\n    GITHUB_PACKAGE=\"Nan1t\/NanoLimbo\"\r\n    MATCH=\"NanoLimbo-\"\r\n\r\n    LATEST_JSON=$(curl --silent \"https:\/\/api.github.com\/repos\/${GITHUB_PACKAGE}\/releases\/latest\")\r\n    RELEASES=$(curl --silent \"https:\/\/api.github.com\/repos\/${GITHUB_PACKAGE}\/releases\")\r\n    \r\n    if [ -z \"${VERSION}\" ] || [ \"${VERSION}\" == \"latest\" ]; then\r\n        DOWNLOAD_URL=$(echo ${LATEST_JSON} | jq .assets | jq -r .[].browser_download_url | grep -i ${MATCH})\r\n    else\r\n        VERSION_CHECK=$(echo ${RELEASES} | jq -r --arg VERSION \"${VERSION}\" '.[] | select(.tag_name==$VERSION) | .tag_name')\r\n        if [ \"${VERSION}\" == \"${VERSION_CHECK}\" ]; then\r\n            DOWNLOAD_URL=$(echo ${RELEASES} | jq -r --arg VERSION \"${VERSION}\" '.[] | select(.tag_name==$VERSION) | .assets[].browser_download_url' | grep -i ${MATCH})\r\n        else\r\n            echo -e \"최신 버전을 사용합니다\"\r\n            DOWNLOAD_URL=$(echo ${LATEST_JSON} | jq .assets | jq -r .[].browser_download_url)\r\n        fi\r\n    fi\r\nelse\r\n    if curl --output \/dev\/null --silent --head --fail ${DOWNLOAD_URL}.jar; then\r\n        echo -e \"다운로드 링크가 정상입니다. 다운로드를 진행합니다\"\r\n    else\r\n        echo -e \"다운로드 링크가 올바르지 않습니다. 스크립트를 종료합니다\"\r\n        exit 2\r\n    fi\r\nfi\r\n\r\ncd \/mnt\/server\r\n\r\necho \"서버 파일을 다운로드중...\"\r\necho -e \"명령어 실행중: curl -sSL ${DOWNLOAD_URL}\"\r\ncurl -sSL -o ${SERVER_JARFILE} ${DOWNLOAD_URL}\r\n\r\nif [ ! -f \"settings.yml\" ]; then\r\necho \"설정 파일을 만드는 중...\"\r\ncurl -sSL -o settings.yml https:\/\/raw.githubusercontent.com\/irochi-moe\/Pterodactyl_eggs\/master\/Minecraft\/java\/nanolimbo\/settings.yml\r\nfi",
-            "container": "debian:buster-slim",
+            "container": "ghcr.io/parkervcp/installers:debian",
             "entrypoint": "bash"
         }
     },
@@ -49,15 +49,18 @@
             "default_value": "nanolimbo.jar",
             "user_viewable": true,
             "user_editable": true,
-            "rules": "required|regex:\/^([\\w\\d._-]+)(\\.jar)$\/"
+            "rules": "required|regex:/^([\\w\\d._-]+)(\\.jar)$/",
+            "field_type": "text"
         },
         {
             "name": "다운로드 링크",
             "description": "JAR 파일을 다운로드할 링크를 설정합니다. 이 값은 유저가 볼 수 없습니다.",
             "env_variable": "DOWNLOAD_URL",
+            "default_value": "",
             "user_viewable": false,
             "user_editable": false,
-            "rules": "nullable|string"
+            "rules": "nullable|string",
+            "field_type": "text"
         }
     ]
 }

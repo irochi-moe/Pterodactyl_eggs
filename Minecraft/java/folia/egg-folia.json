@@ -47,7 +47,7 @@
             "default_value": "latest",
             "user_viewable": false,
             "user_editable": false,
-            "rules": "required|string|max:20",
+            "rules": "nullable|string|max:20",
             "field_type": "text"
         },
         {
@@ -57,13 +57,14 @@
             "default_value": "folia.jar",
             "user_viewable": true,
             "user_editable": true,
-            "rules": "required|regex:\/^([\\w\\d._-]+)(\\.jar)$\/",
+            "rules": "required|regex:/^([\\w\\d._-]+)(\\.jar)$/",
             "field_type": "text"
         },
         {
             "name": "다운로드 링크",
             "description": "JAR 파일을 다운로드할 링크를 설정합니다. 이 값은 유저가 볼 수 없습니다.",
             "env_variable": "DL_PATH",
+            "default_value": "",
             "user_viewable": false,
             "user_editable": false,
             "rules": "nullable|string",
