@@ -6,7 +6,7 @@
     },
     "exported_at": "2024-01-01T00:00:00+09:00",
     "name": "NanoLimbo",
-    "author": "help@irochi.moe",
+    "author": "help_pterodactyl_eggs@irochi.moe",
     "description": "NanoLimbo는 초경량 서버 프로그램입니다. Java와 Netty로 작성된 이 가벼운 Minecraft limbo 서버는 최소한의 패킷으로 많은 플레이어를 유지하는 것을 목표로 합니다. 주로 대기열 서버에 사용됩니다.",
     "features": [
         "eula",

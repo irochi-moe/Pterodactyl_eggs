@@ -6,7 +6,7 @@
     },
     "exported_at": "2024-01-01T00:00:00+09:00",
     "name": "Purpur",
-    "author": "help@irochi.moe",
+    "author": "help_pterodactyl_eggs@irochi.moe",
     "description": "Purpur는 잘 알려진 Paper를 대체하는 버킷으로, 높은 설정 가능성과 새롭고 재미있는 게임 플레이 기능을 제공합니다.",
     "features": [
         "eula",
@@ -19,10 +19,10 @@
         "Java 16": "ghcr.io\/irochi-moe\/pterodactyl_yolks:java_16",
         "Java 17": "ghcr.io\/irochi-moe\/pterodactyl_yolks:java_17",
         "Java 21": "ghcr.io\/irochi-moe\/pterodactyl_yolks:java_21",
-        "Java 24": "ghcr.io\/irochi-moe\/pterodactyl_yolks:java_25",
+        "Java 25": "ghcr.io\/irochi-moe\/pterodactyl_yolks:java_25",
         "GraalVM 17": "ghcr.io\/irochi-moe\/pterodactyl_yolks:java_17graalvm",
         "GraalVM 21": "ghcr.io\/irochi-moe\/pterodactyl_yolks:java_21graalvm",
-        "GraalVM 24": "ghcr.io\/irochi-moe\/pterodactyl_yolks:java_25graalvm"
+        "GraalVM 25": "ghcr.io\/irochi-moe\/pterodactyl_yolks:java_25graalvm"
     },
     "file_denylist": [],
     "startup": "java -Xms$(({{SERVER_MEMORY}}*70/100))M -Xmx$(({{SERVER_MEMORY}}*70/100))M -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true -Dterminal.jline=false -Dterminal.ansi=true -Dfile.encoding=UTF-8 --add-modules=jdk.incubator.vector -jar {{SERVER_JARFILE}} --nogui",

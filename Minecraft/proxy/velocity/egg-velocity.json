@@ -6,7 +6,7 @@
     },
     "exported_at": "2024-01-01T00:00:00+09:00",
     "name": "Velocity",
-    "author": "help@irochi.moe",
+    "author": "help_pterodactyl_eggs@irochi.moe",
     "description": "Velocity는 뛰어난 서버 지원, 확장성, 유연성을 자랑하는 Minecraft 서버 프록시입니다.",
     "features": [
         "eula",
@@ -19,10 +19,10 @@
         "Java 16": "ghcr.io\/irochi-moe\/pterodactyl_yolks:java_16",
         "Java 17": "ghcr.io\/irochi-moe\/pterodactyl_yolks:java_17",
         "Java 21": "ghcr.io\/irochi-moe\/pterodactyl_yolks:java_21",
-        "Java 24": "ghcr.io\/irochi-moe\/pterodactyl_yolks:java_25",
+        "Java 25": "ghcr.io\/irochi-moe\/pterodactyl_yolks:java_25",
         "GraalVM 17": "ghcr.io\/irochi-moe\/pterodactyl_yolks:java_17graalvm",
         "GraalVM 21": "ghcr.io\/irochi-moe\/pterodactyl_yolks:java_21graalvm",
-        "GraalVM 24": "ghcr.io\/irochi-moe\/pterodactyl_yolks:java_25graalvm"
+        "GraalVM 25": "ghcr.io\/irochi-moe\/pterodactyl_yolks:java_25graalvm"
     },
     "file_denylist": [],
     "startup": "java -Xms$(({{SERVER_MEMORY}}*70/100))M -Xmx$(({{SERVER_MEMORY}}*70/100))M -XX:+UseG1GC -XX:G1HeapRegionSize=4M -XX:+UnlockExperimentalVMOptions -XX:+ParallelRefProcEnabled -XX:+AlwaysPreTouch -XX:MaxInlineLevel=15 -Dfile.encoding=UTF-8 -Dterminal.jline=false -Dterminal.ansi=true -jar {{SERVER_JARFILE}}",
