@@ -15,11 +15,12 @@
     ],
     "docker_images": {
         "Java 8": "ghcr.io\/irochi-moe\/pterodactyl_yolks:java_8",
-        "Java 11": "ghcr.io\/irochi-moe\/pterodactyl_yolks:java_11",
-        "Java 16": "ghcr.io\/irochi-moe\/pterodactyl_yolks:java_16",
         "Java 17": "ghcr.io\/irochi-moe\/pterodactyl_yolks:java_17",
+        "GraalVM 17": "ghcr.io\/irochi-moe\/pterodactyl_yolks:java_17graalvm",
         "Java 21": "ghcr.io\/irochi-moe\/pterodactyl_yolks:java_21",
-        "Java 25": "ghcr.io\/irochi-moe\/pterodactyl_yolks:java_25"
+        "GraalVM 21": "ghcr.io\/irochi-moe\/pterodactyl_yolks:java_21graalvm",
+        "Java 25": "ghcr.io\/irochi-moe\/pterodactyl_yolks:java_25",
+        "GraalVM 25": "ghcr.io\/irochi-moe\/pterodactyl_yolks:java_25graalvm"
     },
     "file_denylist": [],
     "startup": "java -Xms$(({{SERVER_MEMORY}}*70\/100))M -Xmx$(({{SERVER_MEMORY}}*70\/100))M -XX:+UseG1GC -XX:G1HeapRegionSize=4M -XX:+UnlockExperimentalVMOptions -XX:+ParallelRefProcEnabled -XX:+AlwaysPreTouch -XX:MaxInlineLevel=15 -Dfile.encoding=UTF-8 -Dterminal.jline=false -Dterminal.ansi=true -jar {{SERVER_JARFILE}}",
